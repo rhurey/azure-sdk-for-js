@@ -167,8 +167,8 @@ await session.updateSession({
   turnDetection: {
     type: "server_vad",
     threshold: 0.5,
-    prefixPaddingMs: 300,
-    silenceDurationMs: 500,
+    prefixPaddingInMs: 300,
+    silenceDurationInMs: 500,
   },
   inputAudioFormat: "pcm16",
   outputAudioFormat: "pcm16",
@@ -200,8 +200,8 @@ await session.updateSession({
   turnDetection: {
     type: "server_vad",
     threshold: 0.6,
-    prefixPaddingMs: 200,
-    silenceDurationMs: 300,
+    prefixPaddingInMs: 200,
+    silenceDurationInMs: 300,
   },
   inputAudioFormat: "pcm16",
   outputAudioFormat: "pcm16",
@@ -327,7 +327,7 @@ const subscription = session.subscribe({
 
 **Audio Issues**: For audio-related problems:
 - Verify microphone permissions in the browser
-- Check that audio formats (PCM16, PCM24) are supported
+- Check that audio formats (PCM16, G711) are supported
 - Ensure proper audio context setup for playback
 
 ### Logging

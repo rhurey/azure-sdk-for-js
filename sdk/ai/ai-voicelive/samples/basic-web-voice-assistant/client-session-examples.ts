@@ -35,32 +35,32 @@ async function basicHandlerPatternExample() {
         console.log('🟢 Connected to session:', context.sessionId);
       },
 
-      processError: async (error, context) => {
+      onError: async (error, context) => {
         console.log('🔴 Session error:', error.error.message);
       },
 
-      processResponseCreated: async (event, context) => {
+      onResponseCreated: async (event, context) => {
         console.log('🤔 Assistant started thinking...');
       },
 
-      processResponseDone: async (event, context) => {
+      onResponseDone: async (event, context) => {
         console.log('✅ Assistant finished response');
       },
 
-      processTextReceived: async (event, context) => {
+      onResponseTextDelta: async (event, context) => {
         console.log('📝 Text received:', event.delta);
       },
 
-      processAudioReceived: async (event, context) => {
+      onResponseAudioDelta: async (event, context) => {
         console.log('🔊 Audio received:', event.delta.byteLength, 'bytes');
         // Handle real-time audio streaming
       },
 
-      processSpeechStarted: async (event, context) => {
+      onInputAudioBufferSpeechStarted: async (event, context) => {
         console.log('🎤 Speech detected');
       },
 
-      processSpeechStopped: async (event, context) => {
+      onInputAudioBufferSpeechStopped: async (event, context) => {
         console.log('⏸️ Speech stopped');
       }
     });
@@ -78,7 +78,9 @@ async function basicHandlerPatternExample() {
       outputAudioFormat: 'pcm16',
       turnDetection: {
         type: 'server_vad',
-        threshold: 0.5
+        threshold: 0.5,
+        prefixPaddingInMs: 300,
+        silenceDurationInMs: 500
       }
     });
 

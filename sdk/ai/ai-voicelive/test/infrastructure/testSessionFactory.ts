@@ -21,7 +21,7 @@ interface AudioOptions {
  * Mock credential for testing
  */
 export class MockTokenCredential implements TokenCredential {
-  constructor(private _token?: string) { }
+  constructor(private _token?: string) {}
 
   async getToken(
     _scopes: string | string[],
@@ -37,7 +37,7 @@ export class MockTokenCredential implements TokenCredential {
  * Mock key credential for testing
  */
 export class MockKeyCredential implements KeyCredential {
-  constructor(private _key: string = TestConstants.TEST_API_KEY) { }
+  constructor(private _key: string = TestConstants.TEST_API_KEY) {}
 
   get key(): string {
     return this._key;

@@ -73,12 +73,20 @@ export {
   MCPServer,
   KnownMCPApprovalType,
   MCPApprovalType,
+  FoundryAgentTool,
+  KnownFoundryAgentContextType,
+  FoundryAgentContextType,
   ToolChoice,
   KnownToolChoiceLiteral,
   ToolChoiceLiteral,
   ToolChoiceSelection,
   ToolChoiceSelectionUnion,
   ToolChoiceFunctionSelection,
+  KnownReasoningEffort,
+  ReasoningEffort,
+  FillerResponseConfig,
+  BasicFillerResponseConfig,
+  LlmFillerResponseConfig,
   ClientEventSessionAvatarConnect,
   ClientEventInputAudioTurnStart,
   ClientEventInputAudioTurnAppend,
@@ -118,6 +126,12 @@ export {
   ResponseCreateParams,
   ClientEventResponseCancel,
   ClientEventConversationItemRetrieve,
+  FillerResponseConfigBase,
+  FillerResponseConfigBaseUnion,
+  KnownFillerResponseConfigType,
+  FillerResponseConfigType,
+  KnownFillerTrigger,
+  FillerTrigger,
   SessionBase,
   ConversationItemBase,
   Response,
@@ -149,6 +163,7 @@ export {
   ResponseMCPCallItem,
   ResponseMCPApprovalRequestItem,
   ResponseMCPApprovalResponseItem,
+  ResponseFoundryAgentCallItem,
   TokenUsage,
   InputTokenDetails,
   CachedTokenDetails,
@@ -203,44 +218,9 @@ export {
   ServerEventResponseMcpCallInProgress,
   ServerEventResponseMcpCallCompleted,
   ServerEventResponseMcpCallFailed,
+  ServerEventResponseFoundryAgentCallArgumentsDelta,
+  ServerEventResponseFoundryAgentCallArgumentsDone,
+  ServerEventResponseFoundryAgentCallInProgress,
+  ServerEventResponseFoundryAgentCallCompleted,
+  ServerEventResponseFoundryAgentCallFailed,
 } from "./models/index.js";
-
-// Main client export
-export { VoiceLiveClient, VoiceLiveClientOptions } from "./voiceLiveClient.js";
-
-// Session export
-export {
-  VoiceLiveSession,
-  VoiceLiveSessionOptions,
-  ConnectOptions,
-  SendEventOptions,
-  AudioStreamOptions,
-  TurnOptions,
-  CreateSessionOptions,
-  StartSessionOptions,
-} from "./voiceLiveSession.js";
-
-// Handlerbased subscription exports (Azure SDK pattern)
-export type {
-  VoiceLiveSessionHandlers,
-  VoiceLiveSubscription,
-  ConnectionContext,
-  SessionContext,
-  ConnectedEventArgs,
-  DisconnectedEventArgs,
-  ErrorEventArgs,
-} from "./handlers/sessionHandlers.js";
-
-// WebSocket and connection exports
-export { ConnectionState } from "./websocket/connectionManager.js";
-
-// Error exports
-export {
-  VoiceLiveError,
-  VoiceLiveConnectionError,
-  VoiceLiveAuthenticationError,
-  VoiceLiveProtocolError,
-  VoiceLiveErrorCodes,
-  classifyConnectionError,
-  classifyProtocolError,
-} from "./errors/index.js";

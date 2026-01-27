@@ -224,3 +224,43 @@ export {
   ServerEventResponseFoundryAgentCallCompleted,
   ServerEventResponseFoundryAgentCallFailed,
 } from "./models/index.js";
+
+// Main client export
+export { VoiceLiveClient, VoiceLiveClientOptions } from "./client/voiceLiveClient.js";
+
+// Session export
+export {
+  VoiceLiveSession,
+  VoiceLiveSessionOptions,
+  ConnectOptions,
+  SendEventOptions,
+  AudioStreamOptions,
+  TurnOptions,
+  CreateSessionOptions,
+  StartSessionOptions,
+} from "./client/voiceLiveSession.js";
+
+// Handlerbased subscription exports (Azure SDK pattern)
+export type {
+  VoiceLiveSessionHandlers,
+  VoiceLiveSubscription,
+  ConnectionContext,
+  SessionContext,
+  ConnectedEventArgs,
+  DisconnectedEventArgs,
+  ErrorEventArgs,
+} from "./handlers/sessionHandlers.js";
+
+// WebSocket and connection exports
+export { ConnectionState } from "./websocket/connectionManager.js";
+
+// Error exports
+export {
+  VoiceLiveError,
+  VoiceLiveConnectionError,
+  VoiceLiveAuthenticationError,
+  VoiceLiveProtocolError,
+  VoiceLiveErrorCodes,
+  classifyConnectionError,
+  classifyProtocolError,
+} from "./errors/index.js";

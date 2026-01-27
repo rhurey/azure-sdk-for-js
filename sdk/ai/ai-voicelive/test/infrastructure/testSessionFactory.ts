@@ -1,9 +1,9 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { VoiceLiveClient } from "../../src/voiceLiveClient.js";
-import { VoiceLiveSession } from "../../src/voiceLiveSession.js";
-import type { SendEventOptions, TurnOptions } from "../../src/voiceLiveSession.js";
+import { VoiceLiveClient } from "../../src/client/voiceLiveClient.js";
+import { VoiceLiveSession } from "../../src/client/voiceLiveSession.js";
+import type { SendEventOptions, TurnOptions } from "../../src/client/voiceLiveSession.js";
 import type { ConversationRequestItem } from "../../src/models/index.js";
 import { MockVoiceLiveWebSocket } from "./mockWebSocket.js";
 import { TestConstants, audioToBase64 } from "./testConstants.js";
@@ -21,7 +21,7 @@ interface AudioOptions {
  * Mock credential for testing
  */
 export class MockTokenCredential implements TokenCredential {
-  constructor(private _token?: string) {}
+  constructor(private _token?: string) { }
 
   async getToken(
     _scopes: string | string[],
@@ -37,7 +37,7 @@ export class MockTokenCredential implements TokenCredential {
  * Mock key credential for testing
  */
 export class MockKeyCredential implements KeyCredential {
-  constructor(private _key: string = TestConstants.TEST_API_KEY) {}
+  constructor(private _key: string = TestConstants.TEST_API_KEY) { }
 
   get key(): string {
     return this._key;

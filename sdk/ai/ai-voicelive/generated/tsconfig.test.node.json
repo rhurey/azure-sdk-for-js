@@ -1,0 +1,10 @@
+{
+  "extends": "../../../tsconfig.test.node.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@azure/ai-voicelive": ["./src/index.ts"],
+      "@azure/ai-voicelive/*": ["./src/*"],
+      "$internal/*": ["./src/*"]
+    }
+  }
+}
